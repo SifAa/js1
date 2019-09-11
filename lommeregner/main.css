@@ -1,0 +1,9 @@
+
+.result{
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    margin: auto;
+    background-color: yellow;
+    font-size: 3rem; /* 1rem = 16px */
+}
