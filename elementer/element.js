@@ -1,10 +1,10 @@
 
-let btn = document.querySelector("#btn");
+let btn = document.querySelector("#btn"); //global
 
 btn.addEventListener("click", createInput);
 
 function createInput() {
-
+//lokale
 let selected = parseInt(document.querySelector("#select").value);
 let output = document.querySelector("#output"); //laver en variabel output, så jeg kan indsætte alt specifikt i body'en
 
@@ -39,6 +39,6 @@ let output = document.querySelector("#output"); //laver en variabel output, så 
 
 // sletter rækken knappen er inden i
 function eraseInput(i) {
-    let inputRow =  document.querySelector("#row" + i);
+    let inputRow =  document.querySelector("#row" + i); //lokal
     inputRow.remove();
 }

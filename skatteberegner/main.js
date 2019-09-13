@@ -1,5 +1,6 @@
 
 // vælger inputfelt med querySelector
+// globale
 let txt1 = document.querySelector("#navn"); 
 let txt2 = document.querySelector("#efternavn"); 
 
@@ -24,9 +25,10 @@ function ValidateText(event){
     } 
 
 let btn = document.querySelector("#btn");
-btn.addEventListener("click", udregn);
+btn.addEventListener("click", udregn); //global
 
 function udregn (){
+    // lokale
     let navn = document.querySelector("#navn").value;
     let efternavn = document.querySelector("#efternavn").value;
     let region = document.querySelector("#region").value;
@@ -37,8 +39,9 @@ function udregn (){
 }
 
 function skatteberegner(navn, efternavn, region, belob) {
-    let procent = 0;
+    let procent = 0; //lokal
 
+    //definere procenten med en switch
     switch (region) {
         case "Hovedstaden":
             procent = 45;
@@ -59,10 +62,12 @@ function skatteberegner(navn, efternavn, region, belob) {
             break;
     }
 
+    // regner skat og beløb efter skat defineret efter hvilken procent valgt med switch'en
     let skat = belob/100*procent;
     let rest = belob-skat;
 
-    let elementResult = document.querySelector(".skat");
+    let elementResult = document.querySelector(".skat"); //definere stedet jeg vil indsætte tekst
+    //indsætter tekst med alt informationen
     elementResult.innerHTML = navn.charAt(0).toUpperCase() + navn.slice(1).toLowerCase() + 
     " " + efternavn.charAt(0).toUpperCase() + efternavn.slice(1).toLowerCase() + 
     " bor i region " + region + 
@@ -71,6 +76,7 @@ function skatteberegner(navn, efternavn, region, belob) {
     "% <br> Skat at betale: " + skat + 
     " DKK <br> Løn efter skat: " + rest + " DKK";
     
+    //resetter værdierne
     document.querySelector("#navn").value = "";
     document.querySelector("#efternavn").value = "";
     document.querySelector("#belob").value = "";
